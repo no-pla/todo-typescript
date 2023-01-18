@@ -26,7 +26,11 @@ export const useForm = () => {
   };
 
   const onToggleFinish = async (id: number) => {
-    await axios.patch(`http://localhost:3001/todos/${id}`);
+    let { data } = await axios.get(`http://localhost:3001/todos/${id}`);
+    axios.patch(`http://localhost:3001/todos/${id}`, {
+      ...data,
+      isDone: !data.isDone,
+    });
   };
 
   return { formValue, onChange, onSubmit, onDelete, onEdit, onToggleFinish };

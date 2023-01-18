@@ -26,8 +26,9 @@ export const Home = () => {
         <button onClick={onSubmit}>추가</button>
       </form>
       <h3>하는 중</h3>
-      <TodoList />
+      <TodoList isDone={false} />
       <h3>완료</h3>
+      <TodoList isDone={true} />
     </>
   );
 };
